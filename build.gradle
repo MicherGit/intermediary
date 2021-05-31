@@ -110,13 +110,15 @@ def makeJar(String mcVersion, File mappings, boolean v2) {
 
 publishing {
 	repositories {
-		if (ENV.MAVEN_URL) {
-			maven {
-				url ENV.MAVEN_URL
-				credentials {
-					username ENV.MAVEN_USERNAME
-					password ENV.MAVEN_PASSWORD
-				}
+		maven {
+			credentials  {
+				username = "zeta"
+				password = "TNTboom123"
+			}
+			url "https://panel.repsy.io/mvn/zeta/taterbric/"
+			authentication {
+				// I was missing this authentication section and that's why read timeout
+				basic(BasicAuthentication)
 			}
 		}
 	}
